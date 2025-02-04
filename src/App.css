@@ -29,3 +29,37 @@ p{
 input{
   box-sizing: border-box;
 }
+/*Button Customization*/
+button{
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: 0.2s;
+}
+
+button:hover{
+  opacity:1;
+}
+
+.complete{
+  background-color: #5cb85c;
+}
+
+.remove{
+  background-color: #d9534f;
+}
+/*Trophy form Customization*/
+.trophy-form{
+  padding-bottom: 1.5rem;
+}
+
+input, select{
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  width: 100%;
+}

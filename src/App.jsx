@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import './App.css'
+import TrophyList from './components/TrophyList'
+import TrophyForm from './components/TrophyForm'
 
 
 function App() {
@@ -32,23 +34,11 @@ function App() {
       <h1>List of Trophies</h1>
       <div className='trophy-list'>
         {todos.map((todo) => (
-          <div className='todo'>
-
-            <div className="content">
-              <p>{todo.nameGame}</p>
-              <p>{todo.text}</p>
-              <p className="category">({todo.category})</p>
-            </div>
-
-            <div>
-              <button>Complete</button>
-              <button>Delete</button>
-            </div>
-
-          </div>
+          <TrophyList todo={todo}></TrophyList>
         ))}
 
       </div>
+      <TrophyForm></TrophyForm>
     </div>
   )
 }
