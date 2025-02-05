@@ -1,18 +1,18 @@
 import React from 'react'
 
-const TrophyList = ({todo}) => {
+const TrophyList = ({trophy, removeTrophy}) => {
   return (
-    <div className='todo'>
+    <div className='trophy'>
 
     <div className="content">
-      <p>{todo.nameGame}</p>
-      <p>{todo.text}</p>
-      <p className="category">({todo.category})</p>
+      <p>{trophy.nameGame}</p>
+      <p>{trophy.text}</p>
+      <p className="category">({trophy.category})</p>
     </div>
 
     <div>
       <button className='complete'>Complete</button>
-      <button className='remove'>Delete</button>
+      <button className='remove' onClick={()=>removeTrophy(trophy.id)}>Delete</button>
     </div>
 
   </div>

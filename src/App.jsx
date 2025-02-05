@@ -5,7 +5,7 @@ import TrophyForm from './components/TrophyForm'
 
 
 function App() {
-  const [todos, setTodos] = useState([
+  const [trophys, setTrophys] = useState([
     {
       id: 1,
       nameGame:"Game 1",
@@ -29,16 +29,36 @@ function App() {
     },
   ])
 
+  const addTrophy = (nameGame, text, category) =>{
+    const newTrophies=[...trophys,{
+      id: Math.floor(Math.random()*10000),
+      nameGame,
+      text,
+      category,
+      isCompleted:false,
+    },
+  ];
+  setTrophys(newTrophies);
+
+  }
+
+  const removeTrophy =(id)=>{
+    const newTrophies = [...trophys]
+    const filteredTrophies = trophys.filter(trophy => trophy.id !== id);
+    setTrophys(filteredTrophies);
+  }
+    
+
   return (
     <div className='app'>
       <h1>List of Trophies</h1>
       <div className='trophy-list'>
-        {todos.map((todo) => (
-          <TrophyList todo={todo}></TrophyList>
+        {trophys.map((trophy) => (
+          <TrophyList key ={trophy.id} trophy={trophy} removeTrophy={removeTrophy}></TrophyList>
         ))}
 
       </div>
-      <TrophyForm></TrophyForm>
+      <TrophyForm addTrophy={addTrophy}></TrophyForm>
     </div>
   )
 }

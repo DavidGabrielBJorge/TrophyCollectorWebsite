@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-const TrophyForm = () => {
+const TrophyForm = ({addTrophy}) => {
     const [name, setName] = useState("");
     const [text, setText] = useState("");
     const [category, setCategory] = useState("");
@@ -10,12 +10,13 @@ const TrophyForm = () => {
         e.preventDefault();
         //Verify if every camp is occupy
         if(!name || !text ||  !category){
-            console.log("onde of the fields are empty ")
+            console.log("one of the fields are empty ")
             return;
         }
         else{
             console.log(name, text, category);
         }
+        addTrophy(name, text, category);
         setName("");
         setText("");
         setCategory("");
