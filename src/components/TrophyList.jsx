@@ -7,6 +7,7 @@ const TrophyList = ({trophy, removeTrophy, completeTrophy}) => {
     <div className="content">
       <p>{trophy.nameGame}</p>
       <p>{trophy.text}</p>
+      <p>{trophy.createdAt}</p>
       <p className="category">({trophy.category})</p>
     </div>
 

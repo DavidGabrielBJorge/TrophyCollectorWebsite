@@ -12,33 +12,41 @@ function App() {
       nameGame:"Game 1",
       text:"Test Text 1",
       category:"Category 1",
-      isCompleted: false
+      isCompleted: false,
+      createdAt: "01/01/2025"
     },
     {
       id: 2,
       nameGame:"Game 2",
       text:"Test Text 2",
       category:"Category 2",
-      isCompleted: false
+      isCompleted: false,
+      createdAt: "01/01/2025"
     },
     {
       id: 3,
       nameGame:"Game 3",
       text:"Test Text 3",
       category:"Category 3",
-      isCompleted: false
+      isCompleted: false,
+      createdAt: "01/01/2025"
     },
   ])
 
   const [search, setSearch]=useState("");
 
   const addTrophy = (nameGame, text, category) =>{
+
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString("pt-BR");
+
     const newTrophies=[...trophys,{
       id: Math.floor(Math.random()*10000),
       nameGame,
       text,
       category,
       isCompleted:false,
+      createdAt: formattedDate,
     },
   ];
   setTrophys(newTrophies);
