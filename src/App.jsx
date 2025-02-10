@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import TrophyList from './components/TrophyList'
 import TrophyForm from './components/TrophyForm'
+import TrophySearch from './components/TrophySearch'
 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
     },
   ])
 
+  const [search, setSearch]=useState("");
+
   const addTrophy = (nameGame, text, category) =>{
     const newTrophies=[...trophys,{
       id: Math.floor(Math.random()*10000),
@@ -47,14 +50,28 @@ function App() {
     const filteredTrophies = trophys.filter(trophy => trophy.id !== id);
     setTrophys(filteredTrophies);
   }
+
+  const completeTrophy =(id)=>{
+    const newTrophies = [...trophys]//Creates a copy of the current array of trophies
+    newTrophies.map((trophy) => trophy.id === id ? trophy.isCompleted = !trophy.isCompleted : trophy)
+    /*
+    For each "trophy", checks if the trophy's id is equal to the one passed as an argument.
+    If so, inverts the value of isCompleted using !trophy.isCompleted.
+    Otherwise, just returns the trophy unchanged.
+    */
+    setTrophys(newTrophies)//Updates the state with the new list
+  }
     
 
   return (
     <div className='app'>
       <h1>List of Trophies</h1>
+      <TrophySearch search={search} setSearch={setSearch}></TrophySearch>
       <div className='trophy-list'>
-        {trophys.map((trophy) => (
-          <TrophyList key ={trophy.id} trophy={trophy} removeTrophy={removeTrophy}></TrophyList>
+        {trophys.filter((trophy)=>
+            trophy.nameGame.toLowerCase().includes(search.toLowerCase())
+          ).map((trophy) => (
+          <TrophyList key ={trophy.id} trophy={trophy} removeTrophy={removeTrophy} completeTrophy={completeTrophy}></TrophyList>
         ))}
 
       </div>

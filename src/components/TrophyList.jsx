@@ -1,8 +1,8 @@
 import React from 'react'
 
-const TrophyList = ({trophy, removeTrophy}) => {
+const TrophyList = ({trophy, removeTrophy, completeTrophy}) => {
   return (
-    <div className='trophy'>
+    <div className='trophy' style={{textDecoration: trophy.isCompleted ? "line-through":""}}>
 
     <div className="content">
       <p>{trophy.nameGame}</p>
@@ -11,7 +11,7 @@ const TrophyList = ({trophy, removeTrophy}) => {
     </div>
 
     <div>
-      <button className='complete'>Complete</button>
+      <button className='complete' onClick={()=>completeTrophy(trophy.id)}>Complete</button>
       <button className='remove' onClick={()=>removeTrophy(trophy.id)}>Delete</button>
     </div>
 
