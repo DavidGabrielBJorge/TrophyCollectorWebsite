@@ -3,6 +3,7 @@ import './App.css'
 import TrophyList from './components/TrophyList'
 import TrophyForm from './components/TrophyForm'
 import TrophySearch from './components/TrophySearch'
+import TrophyFilter from './components/TrophyFilter'
 
 
 function App() {
@@ -34,6 +35,10 @@ function App() {
   ])
 
   const [search, setSearch]=useState("");
+
+  const [filter, setFilter]=useState("All");//sets the first value to "All",this way all the trophies appear when you start the application.
+  const [sort, setSort] = useState("Asc");
+
 
   const addTrophy = (nameGame, text, category) =>{
 
@@ -75,8 +80,11 @@ function App() {
     <div className='app'>
       <h1>List of Trophies</h1>
       <TrophySearch search={search} setSearch={setSearch}></TrophySearch>
+      <TrophyFilter filter={filter} setFilter={setFilter}></TrophyFilter>
       <div className='trophy-list'>
-        {trophys.filter((trophy)=>
+        {trophys
+          .filter((trophy)=> filter === "All" ? true : filter === "Completed" ? trophy.isCompleted : !trophy.isCompleted)
+          .filter((trophy)=>
             trophy.nameGame.toLowerCase().includes(search.toLowerCase())
           ).map((trophy) => (
           <TrophyList key ={trophy.id} trophy={trophy} removeTrophy={removeTrophy} completeTrophy={completeTrophy}></TrophyList>
