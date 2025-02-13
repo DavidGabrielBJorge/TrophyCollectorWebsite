@@ -86,8 +86,7 @@ function App() {
           .filter((trophy)=> filter === "All" ? true : filter === "Completed" ? trophy.isCompleted : !trophy.isCompleted)
           .filter((trophy)=>
             trophy.nameGame.toLowerCase().includes(search.toLowerCase())
-          )
-          .sort((a,b) => sort === "Asc" ? a.nameGame.localeCompare(b.nameGame): b.nameGame.localeCompare(a.nameGame))
+          ).sort((a, b) => sort === "Asc" ? a.nameGame.localeCompare(b.nameGame) : b.nameGame.localeCompare(a.nameGame))
           .map((trophy) => (
           <TrophyList key ={trophy.id} trophy={trophy} removeTrophy={removeTrophy} completeTrophy={completeTrophy}></TrophyList>
         ))}
