@@ -1,4 +1,5 @@
 import React from 'react'
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const TrophyList = ({trophy, removeTrophy, completeTrophy}) => {
   return (
@@ -13,7 +14,7 @@ const TrophyList = ({trophy, removeTrophy, completeTrophy}) => {
 
     <div>
       <button className='complete' onClick={()=>completeTrophy(trophy.id)}>Complete</button>
-      <button className='remove' onClick={()=>removeTrophy(trophy.id)}>Delete</button>
+      <button className='remove' onClick={()=>removeTrophy(trophy.id)}><i className="bi bi-trash3-fill"></i></button>
     </div>
 
   </div>

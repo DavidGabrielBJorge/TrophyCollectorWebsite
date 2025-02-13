@@ -1,6 +1,7 @@
 import React from 'react'
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
-const TrophyFilter = ({filter, setFilter}) => {
+const TrophyFilter = ({filter, setFilter, setSort}) => {
   return (
     <div className='filter'>
         <h2>Filter:</h2>
@@ -15,8 +16,8 @@ const TrophyFilter = ({filter, setFilter}) => {
             </div>   
             <div>
                 <p>Alphabetical Order</p>
-                <button>Asc</button>
-                <button>Desc</button>
+                <button onClick={() => setSort("Asc")}><i className="bi bi-sort-alpha-down"></i></button>
+                <button onClick={() => setSort("Desc")}><i className="bi bi-sort-alpha-down-alt"></i></button>
             </div>
         </div>    
     </div>

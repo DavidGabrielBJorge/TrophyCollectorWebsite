@@ -5,22 +5,33 @@ const TrophyForm = ({addTrophy}) => {
     const [name, setName] = useState("");
     const [text, setText] = useState("");
     const [category, setCategory] = useState("");
+    const [showModal, setShowModal] = useState(false);
 
     const handleSubmit = (e) =>{
         e.preventDefault();
         //Verify if every camp is occupy
         if(!name || !text ||  !category){
-            console.log("one of the fields are empty ")
+            setShowModal(true);
             return;
         }
         else{
-            console.log(name, text, category);
+            addTrophy(name, text, category);
+            setName("");
+            setText("");
+            setCategory("");
         }
-        addTrophy(name, text, category);
-        setName("");
-        setText("");
-        setCategory("");
+
     }
+
+    const ErrorModal = () => (
+        <div className="modal">
+            <div className="modal-content">
+                <p>Preencha todos os campos antes de continuar.</p>
+                <button className="modal-button" onClick={() => setShowModal(false)}>Fechar</button>
+            </div>
+        </div>
+    );
+    
   return (
     <div className='trophy-form'>
         <h2>Criar tarefa</h2>
@@ -36,6 +47,7 @@ const TrophyForm = ({addTrophy}) => {
             </select>
             <button type='submit'>Create Task</button>
         </form>
+        {showModal && <ErrorModal />}
         
 
     </div>
