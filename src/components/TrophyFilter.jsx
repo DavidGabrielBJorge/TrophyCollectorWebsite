@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TrophyFilter = ({filter, setFilter}) => {
+const TrophyFilter = ({filter, setFilter, setSort}) => {
   return (
     <div className='filter'>
         <h2>Filter:</h2>
@@ -15,8 +15,8 @@ const TrophyFilter = ({filter, setFilter}) => {
             </div>   
             <div>
                 <p>Alphabetical Order</p>
-                <button>Asc</button>
-                <button>Desc</button>
+                <button onClick={() => setSort("Asc")}>Asc</button>
+                <button onClick={() => setSort("Desc")}>Desc</button>
             </div>
         </div>    
     </div>

@@ -80,13 +80,14 @@ function App() {
     <div className='app'>
       <h1>List of Trophies</h1>
       <TrophySearch search={search} setSearch={setSearch}></TrophySearch>
-      <TrophyFilter filter={filter} setFilter={setFilter}></TrophyFilter>
+      <TrophyFilter filter={filter} setFilter={setFilter} setSort={setSort}></TrophyFilter>
       <div className='trophy-list'>
         {trophys
           .filter((trophy)=> filter === "All" ? true : filter === "Completed" ? trophy.isCompleted : !trophy.isCompleted)
           .filter((trophy)=>
             trophy.nameGame.toLowerCase().includes(search.toLowerCase())
-          ).map((trophy) => (
+          ).sort((a, b) => sort === "Asc" ? a.nameGame.localeCompare(b.nameGame) : b.nameGame.localeCompare(a.nameGame))
+          .map((trophy) => (
           <TrophyList key ={trophy.id} trophy={trophy} removeTrophy={removeTrophy} completeTrophy={completeTrophy}></TrophyList>
         ))}
 
