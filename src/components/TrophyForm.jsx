@@ -7,6 +7,7 @@ const TrophyForm = ({addTrophy}) => {
     const [category, setCategory] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
+    
 
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -55,12 +56,12 @@ const TrophyForm = ({addTrophy}) => {
             </select>
             <button type='submit'>Create Task</button>
         </form>
-        
+
         {showModal && <ErrorModal />}
 
         {showSuccess && (
                 <div className="success-notification">
-                    Trophy created successfully!
+                    <i className="bi bi-check-circle-fill"></i> Trophy created successfully!
                 </div>
         )}
         

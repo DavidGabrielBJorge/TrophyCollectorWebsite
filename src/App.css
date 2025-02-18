@@ -129,9 +129,13 @@ input, select{
   border-radius: 5px;
   font-weight: bold;
   opacity: 1;
-  transition: opacity 4s ease-out;
+  animation: fadeOut 4s forwards;
 }
 
-.success-notification.hide {
-  opacity: 0;
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  70% { opacity: 1; }  /* Mantém visível por um tempo */
+  100% { opacity: 0; } /* Some no final da animação */
 }
+
+
