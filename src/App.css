@@ -117,3 +117,21 @@ input, select{
   color: #333;
   margin-bottom: 2%;
 }
+
+/*Trophy success notification*/
+.success-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #5cb85c;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  opacity: 1;
+  transition: opacity 4s ease-out;
+}
+
+.success-notification.hide {
+  opacity: 0;
+}

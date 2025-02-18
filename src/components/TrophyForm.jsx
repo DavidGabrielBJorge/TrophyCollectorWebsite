@@ -6,6 +6,7 @@ const TrophyForm = ({addTrophy}) => {
     const [text, setText] = useState("");
     const [category, setCategory] = useState("");
     const [showModal, setShowModal] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
 
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -19,6 +20,13 @@ const TrophyForm = ({addTrophy}) => {
             setName("");
             setText("");
             setCategory("");
+
+            setShowSuccess(true);//Display success notification
+
+            //After 4 seconds it starts to fade away
+            setTimeout(() => {
+                setShowSuccess(false);
+            }, 4000);
         }
 
     }
@@ -47,7 +55,14 @@ const TrophyForm = ({addTrophy}) => {
             </select>
             <button type='submit'>Create Task</button>
         </form>
+        
         {showModal && <ErrorModal />}
+
+        {showSuccess && (
+                <div className="success-notification">
+                    Trophy created successfully!
+                </div>
+        )}
         
 
     </div>
