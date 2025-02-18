@@ -4,6 +4,7 @@ import TrophyList from './components/TrophyList'
 import TrophyForm from './components/TrophyForm'
 import TrophySearch from './components/TrophySearch'
 import TrophyFilter from './components/TrophyFilter'
+import TrophyChart from './components/TrophyChart'
 
 
 function App() {
@@ -93,6 +94,7 @@ function App() {
 
       </div>
       <TrophyForm addTrophy={addTrophy}></TrophyForm>
+      <TrophyChart trophies={trophys} />
     </div>
   )
 }
