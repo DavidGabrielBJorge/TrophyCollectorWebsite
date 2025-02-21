@@ -12,6 +12,7 @@ function App() {
     {
       id: 1,
       nameGame:"Game 1",
+      title:"Test Title",
       text:"Test Text 1",
       category:"Item",
       isCompleted: false,
@@ -25,7 +26,7 @@ function App() {
   const [sort, setSort] = useState("Asc");
 
 
-  const addTrophy = (nameGame, text, category) =>{
+  const addTrophy = (nameGame, title, text,  category) =>{
 
     const currentDate = new Date();
     const formattedDate = currentDate.toLocaleDateString("pt-BR");
@@ -33,6 +34,7 @@ function App() {
     const newTrophies=[...trophys,{
       id: Math.floor(Math.random()*10000),
       nameGame,
+      title,
       text,
       category,
       isCompleted:false,

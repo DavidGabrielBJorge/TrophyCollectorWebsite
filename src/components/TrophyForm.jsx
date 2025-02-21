@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 const TrophyForm = ({addTrophy}) => {
     const [name, setName] = useState("");
+    const [title, setTitle] = useState("");
     const [text, setText] = useState("");
     const [category, setCategory] = useState("");
     const [showModal, setShowModal] = useState(false);
@@ -12,15 +13,16 @@ const TrophyForm = ({addTrophy}) => {
     const handleSubmit = (e) =>{
         e.preventDefault();
         //Verify if every camp is occupy
-        if(!name || !text ||  !category){
+        if(!name || !text ||  !category || !title){
             setShowModal(true);
             return;
         }
         else{
-            addTrophy(name, text, category);
+            addTrophy(name, text, category, title);
             setName("");
             setText("");
             setCategory("");
+            setTitle("");
 
             setShowSuccess(true);//Display success notification
 
@@ -46,7 +48,8 @@ const TrophyForm = ({addTrophy}) => {
         <h2>Criar tarefa</h2>
         <form onSubmit={handleSubmit}>
             <input type="text" placeholder="Enter the name of the game" value={name} onChange={(e) => setName(e.target.value)}></input>
-            <input type="text" placeholder="Enter the details of the game" value={text} onChange={(e) => setText(e.target.value)}></input>
+            <input type="text" placeholder="Enter the title of the trophy" value={title} onChange={(e) => setTitle(e.target.value)}></input>
+            <input type="text" placeholder="Enter the details of the trophy" value={text} onChange={(e) => setText(e.target.value)}></input>
 
             <select value={category} onChange={(e) => setCategory(e.target.value)}>
                 <option value="">Select a category</option>

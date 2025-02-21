@@ -94,7 +94,6 @@ input, select{
 .trophy-created-date {
   position: absolute;
   bottom: 5px;
-  right: 10px;
   font-size: 0.85em;
   color: gray;
 }
