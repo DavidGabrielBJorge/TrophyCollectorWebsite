@@ -6,10 +6,13 @@ const TrophyList = ({trophy, removeTrophy, completeTrophy}) => {
     <div className='trophy' style={{textDecoration: trophy.isCompleted ? "line-through":""}}>
 
     <div className="content">
-      <p>{trophy.nameGame}</p>
+      <p> <i className={trophy.isCompleted ? "bi bi-award-fill" : "bi bi-award"}></i> {trophy.nameGame}</p>
+      {/*If trophy.isCompleted is true → use "bi bi-award-fill" (filled icon). If trophy.isCompleted is false → use "bi bi-award" (empty icon).*/}
+      <p className="category"><i className="bi bi-caret-right-fill"></i>{trophy.category}</p>
       <p>{trophy.text}</p>
-      <p>{trophy.createdAt}</p>
-      <p className="category">({trophy.category})</p>
+      
+      
+      <div className="trophy-created-date">{trophy.createdAt}</div>
     </div>
 
     <div>

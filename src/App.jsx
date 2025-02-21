@@ -13,26 +13,10 @@ function App() {
       id: 1,
       nameGame:"Game 1",
       text:"Test Text 1",
-      category:"Category 1",
+      category:"Item",
       isCompleted: false,
       createdAt: "01/01/2025"
-    },
-    {
-      id: 2,
-      nameGame:"Game 2",
-      text:"Test Text 2",
-      category:"Category 2",
-      isCompleted: false,
-      createdAt: "01/01/2025"
-    },
-    {
-      id: 3,
-      nameGame:"Game 3",
-      text:"Test Text 3",
-      category:"Category 3",
-      isCompleted: false,
-      createdAt: "01/01/2025"
-    },
+    }
   ])
 
   const [search, setSearch]=useState("");

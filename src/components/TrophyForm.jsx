@@ -50,9 +50,9 @@ const TrophyForm = ({addTrophy}) => {
 
             <select value={category} onChange={(e) => setCategory(e.target.value)}>
                 <option value="">Select a category</option>
-                <option value="Category 1">Category 1</option>
-                <option value="Category 2">Category 2</option>
-                <option value="Category 3">Category 3</option>
+                <option value="Collectible">Collectibles</option>
+                <option value="Boss">Boss</option>
+                <option value="Item">Item</option>
             </select>
             <button type='submit'>Create Task</button>
         </form>

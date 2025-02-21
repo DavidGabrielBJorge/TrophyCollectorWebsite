@@ -85,6 +85,19 @@ input, select{
   border-radius: 3px;
   width: 100%;
 }
+
+.content {
+  position: relative; /* Mantém a posição normal, mas permite posicionamento absoluto dos filhos */
+  padding-bottom: 20px; /* Garante espaço para a data */
+}
+
+.trophy-created-date {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-size: 0.85em;
+  color: gray;
+}
 /*Filter customization*/
 .filter, .search{
   border-bottom: 1px solid #555;
