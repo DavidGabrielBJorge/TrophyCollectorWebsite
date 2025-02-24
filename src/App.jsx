@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect  } from 'react'
 import './App.css'
 import TrophyList from './components/TrophyList'
 import TrophyForm from './components/TrophyForm'
@@ -8,22 +8,20 @@ import TrophyChart from './components/TrophyChart'
 
 
 function App() {
-  const [trophys, setTrophys] = useState([
-    {
-      id: 1,
-      nameGame:"Game 1",
-      title:"Test Title",
-      text:"Test Text 1",
-      category:"Item",
-      isCompleted: false,
-      createdAt: "01/01/2025"
-    }
-  ])
+
+  const [trophys, setTrophys] = useState(() => {
+    const savedTrophys = localStorage.getItem("trophys");
+    return savedTrophys ? JSON.parse(savedTrophys) : [];
+  });
 
   const [search, setSearch]=useState("");
 
   const [filter, setFilter]=useState("All");//sets the first value to "All",this way all the trophies appear when you start the application.
   const [sort, setSort] = useState("Asc");
+
+  useEffect(() => {
+    localStorage.setItem("trophys", JSON.stringify(trophys));
+  }, [trophys]);
 
 
   const addTrophy = (nameGame, title, text,  category) =>{

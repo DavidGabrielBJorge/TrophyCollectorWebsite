@@ -32,8 +32,8 @@ const TrophyChart = ({ trophies }) => {
   };
 
   return (
-    <div style={{ width: "500px", margin: "20px auto" }}>
-      <h3>Trophies Completed vs. Incomplete</h3>
+    <div className="trophy-chart" >
+      <h3 className="chart-title">Trophies Completed vs. Incomplete</h3>
       <Bar data={data} options={options} />
     </div>
   );

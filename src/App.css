@@ -144,6 +144,16 @@ input, select{
   animation: fadeOut 4s forwards;
 }
 
+/*Trophy charts*/
+.trophy-chart{
+  width: "500px";
+  margin: "20px auto";
+}
+
+.chart-title{
+  text-align: center;
+}
+
 @keyframes fadeOut {
   0% { opacity: 1; }
   70% { opacity: 1; }  /* Mantém visível por um tempo */
