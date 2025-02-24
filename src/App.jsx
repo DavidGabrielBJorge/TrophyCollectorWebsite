@@ -10,8 +10,8 @@ import TrophyChart from './components/TrophyChart'
 function App() {
 
   const [trophys, setTrophys] = useState(() => {
-    const savedTrophys = localStorage.getItem("trophys");
-    return savedTrophys ? JSON.parse(savedTrophys) : [];
+    const savedTrophys = localStorage.getItem("trophys");// Search for the trophies saved in localStorage
+    return savedTrophys ? JSON.parse(savedTrophys) : [];// If they exist, convert them from string to object. If not, return an empty array.
   });
 
   const [search, setSearch]=useState("");
@@ -20,8 +20,8 @@ function App() {
   const [sort, setSort] = useState("Asc");
 
   useEffect(() => {
-    localStorage.setItem("trophys", JSON.stringify(trophys));
-  }, [trophys]);
+    localStorage.setItem("trophys", JSON.stringify(trophys));// Save the trophies as string in localStorage
+  }, [trophys]);// Run whenever `trophys` changes
 
 
   const addTrophy = (nameGame, title, text,  category) =>{
