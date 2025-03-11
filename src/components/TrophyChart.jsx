@@ -14,7 +14,7 @@ const TrophyChart = ({ trophies }) => {
       {
         label: "Trophies",
         data: [completedCount, incompleteCount],
-        backgroundColor: ["#4CAF50", "#FF5733"], // Verde para completos, Vermelho para incompletos
+        backgroundColor: ["#4CAF50", "#FF5733"], 
         borderColor: ["#388E3C", "#C70039"],
         borderWidth: 1,
       },

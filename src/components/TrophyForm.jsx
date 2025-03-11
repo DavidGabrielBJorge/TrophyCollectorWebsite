@@ -9,6 +9,7 @@ const TrophyForm = ({addTrophy, updateTrophy, editingTrophy}) => {
     const [showModal, setShowModal] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
     
+    
 
     useEffect(() => {
         if (editingTrophy) {
