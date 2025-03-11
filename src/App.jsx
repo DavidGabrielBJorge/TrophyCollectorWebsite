@@ -59,6 +59,24 @@ function App() {
     */
     setTrophys(newTrophies)//Updates the state with the new list
   }
+
+  //Add the editingTrophy state to store the trophy being edited:
+  const [editingTrophy, setEditingTrophy] = useState(null);
+
+  //editTrophy function to define which trophy is being edited:
+  const editTrophy = (trophy) => {
+    setEditingTrophy(trophy);
+  };
+
+  const updateTrophy = (id, updatedTrophy) => {
+    const updatedTrophies = trophys.map((trophy) =>
+      trophy.id === id ? { ...trophy, ...updatedTrophy } : trophy
+    );
+    setTrophys(updatedTrophies);
+    setEditingTrophy(null); // Sai do modo de edição
+  };
+  
+  
     
 
   return (
@@ -73,11 +91,11 @@ function App() {
             trophy.nameGame.toLowerCase().includes(search.toLowerCase())
           ).sort((a, b) => sort === "Asc" ? a.nameGame.localeCompare(b.nameGame) : b.nameGame.localeCompare(a.nameGame))
           .map((trophy) => (
-          <TrophyList key ={trophy.id} trophy={trophy} removeTrophy={removeTrophy} completeTrophy={completeTrophy}></TrophyList>
+          <TrophyList key ={trophy.id} trophy={trophy} removeTrophy={removeTrophy} completeTrophy={completeTrophy}  editTrophy={editTrophy} ></TrophyList>
         ))}
 
       </div>
-      <TrophyForm addTrophy={addTrophy}></TrophyForm>
+      <TrophyForm addTrophy={addTrophy} updateTrophy={updateTrophy} editingTrophy={editingTrophy}></TrophyForm>
       <TrophyChart trophies={trophys} />
     </div>
   )

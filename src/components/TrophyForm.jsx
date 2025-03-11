@@ -1,7 +1,7 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-const TrophyForm = ({addTrophy}) => {
+const TrophyForm = ({addTrophy, updateTrophy, editingTrophy}) => {
     const [name, setName] = useState("");
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
@@ -9,6 +9,15 @@ const TrophyForm = ({addTrophy}) => {
     const [showModal, setShowModal] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
     
+
+    useEffect(() => {
+        if (editingTrophy) {
+            setName(editingTrophy.nameGame);
+            setTitle(editingTrophy.title);
+            setText(editingTrophy.text);
+            setCategory(editingTrophy.category);
+        }
+    }, [editingTrophy]);
 
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -31,21 +40,28 @@ const TrophyForm = ({addTrophy}) => {
                 setShowSuccess(false);
             }, 4000);
         }
+        if (editingTrophy) {
+            // Atualiza o troféu existente
+            updateTrophy(editingTrophy.id, { nameGame: name, title, text, category });
+        } else {
+            // Adiciona um novo troféu
+            addTrophy(name, title, text, category);
+        }
 
     }
 
     const ErrorModal = () => (
         <div className="modal">
             <div className="modal-content">
-                <p>Preencha todos os campos antes de continuar.</p>
-                <button className="modal-button" onClick={() => setShowModal(false)}>Fechar</button>
+                <p>Please fill in all fields before continuing.</p>
+                <button className="modal-button" onClick={() => setShowModal(false)}>Close</button>
             </div>
         </div>
     );
     
   return (
     <div className='trophy-form'>
-        <h2>Criar tarefa</h2>
+        <h2>{editingTrophy ? "Edit Trophy" : "Create Trophy"}</h2>
         <form onSubmit={handleSubmit}>
             <input type="text" placeholder="Enter the name of the game" value={name} onChange={(e) => setName(e.target.value)}></input>
             <input type="text" placeholder="Enter the title of the trophy" value={title} onChange={(e) => setTitle(e.target.value)}></input>
@@ -57,7 +73,7 @@ const TrophyForm = ({addTrophy}) => {
                 <option value="Boss">Boss</option>
                 <option value="Item">Item</option>
             </select>
-            <button type='submit'>Create Task</button>
+            <button type='submit'>{editingTrophy ? "Update Task" : "Create Task"}</button>
         </form>
 
         {showModal && <ErrorModal />}
