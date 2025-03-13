@@ -23,6 +23,7 @@ const TrophyForm = ({addTrophy, updateTrophy, editingTrophy}) => {
     const handleSubmit = (e) =>{
         e.preventDefault();
         //Verify if every camp is occupy
+        
         if(!name || !text ||  !category || !title){
             setShowModal(true);
             return;

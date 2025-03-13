@@ -136,7 +136,6 @@ input, select{
   border: 1px solid #555;
   margin:2% 15%;
   color: #363537;
-
   text-align: center;
 }
 
@@ -195,6 +194,12 @@ input, select{
     display:block;
   }
 
+  .success-notification {
+    top: 20%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    right: unset; 
+  }
   
 }
 
