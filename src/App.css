@@ -47,7 +47,7 @@ button:hover{
 }
 
 .option-button{
-  padding-left: 2%;
+  margin-top: -2rem;
 }
 
 .complete{
@@ -80,7 +80,7 @@ button:hover{
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
-  display: flex;
+  display: block;
   justify-content: space-between;
   align-items: center;
 }
@@ -189,6 +189,10 @@ input, select{
 
   .filter-options div {
     width: 100%; 
+  }
+
+  .trophy{
+    display:block;
   }
 
   
