@@ -46,6 +46,26 @@ button:hover{
   opacity:1;
 }
 
+.option-button{
+  padding-left: 2%;
+}
+
+.complete{
+  background-color: #5cb85c;
+}
+
+.edit{
+  background-color: #454ADE;
+  margin-top: 4%;
+
+}
+
+.remove{
+  background-color: #d9534f;
+  margin-top: 10%;
+}
+
+
 .trophy-list{
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -65,14 +85,10 @@ button:hover{
   align-items: center;
 }
 
-
-.complete{
-  background-color: #5cb85c;
+.trophy-text{
+  text-align: justify;
 }
 
-.remove{
-  background-color: #d9534f;
-}
 /*Trophy form Customization*/
 .trophy-form{
   padding-bottom: 1.5rem;
@@ -87,8 +103,8 @@ input, select{
 }
 
 .content {
-  position: relative; /* Mantém a posição normal, mas permite posicionamento absoluto dos filhos */
-  padding-bottom: 20px; /* Garante espaço para a data */
+  position: relative; 
+  padding-bottom: 20px; 
 }
 
 .trophy-created-date {
@@ -156,8 +172,26 @@ input, select{
 
 @keyframes fadeOut {
   0% { opacity: 1; }
-  70% { opacity: 1; }  /* Mantém visível por um tempo */
-  100% { opacity: 0; } /* Some no final da animação */
+  70% { opacity: 1; }  /* Keeps it visible for a while */
+  100% { opacity: 0; } /* Disappears at the end of the animation */
+}
+
+@media (max-width: 768px) { 
+
+  .filter h2{
+    margin-bottom: 2%;
+  }
+
+  .filter-options {
+    flex-direction: column; 
+    gap: 1rem; 
+  }
+
+  .filter-options div {
+    width: 100%; 
+  }
+
+  
 }
 
 

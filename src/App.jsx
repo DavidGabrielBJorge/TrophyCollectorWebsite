@@ -1,3 +1,8 @@
+/*
+*************************************************************************************************************
+Inside App.jsx is all the program logic, from CRUD logic to search methods, and it also contains the structure of the web page component.
+*************************************************************************************************************
+*/
 import { useState, useEffect  } from 'react'
 import './App.css'
 import TrophyList from './components/TrophyList'
@@ -9,28 +14,30 @@ import TrophyChart from './components/TrophyChart'
 
 function App() {
 
+  //This code initializes the trophies state with the data saved in localStorage, if any. Otherwise, it starts with an empty array.
   const [trophys, setTrophys] = useState(() => {
     const savedTrophys = localStorage.getItem("trophys");// Search for the trophies saved in localStorage
     return savedTrophys ? JSON.parse(savedTrophys) : [];// If they exist, convert them from string to object. If not, return an empty array.
   });
 
-  const [search, setSearch]=useState("");
+  const [search, setSearch]=useState("");//Stores and updates the program's search status
 
   const [filter, setFilter]=useState("All");//sets the first value to "All",this way all the trophies appear when you start the application.
-  const [sort, setSort] = useState("Asc");
+  const [sort, setSort] = useState("Asc");//Stores or updates the display order of the list. It can be "Asc" (ascending) or "Desc" (descending).
 
   useEffect(() => {
     localStorage.setItem("trophys", JSON.stringify(trophys));// Save the trophies as string in localStorage
   }, [trophys]);// Run whenever `trophys` changes
 
 
+  //Function to add trophy
   const addTrophy = (nameGame, title, text,  category) =>{
 
-    const currentDate = new Date();
-    const formattedDate = currentDate.toLocaleDateString("pt-BR");
+    const currentDate = new Date();// Get the current date
+    const formattedDate = currentDate.toLocaleDateString("pt-BR");// Format the date to "dd/mm/yyyy"
 
     const newTrophies=[...trophys,{
-      id: Math.floor(Math.random()*10000),
+      id: Math.floor(Math.random()*10000),// Generate a random ID
       nameGame,
       title,
       text,
@@ -39,16 +46,18 @@ function App() {
       createdAt: formattedDate,
     },
   ];
-  setTrophys(newTrophies);
+  setTrophys(newTrophies);// Update the state with the new trophy
 
   }
 
+  //Function to remove trophy
   const removeTrophy =(id)=>{
     const newTrophies = [...trophys]
     const filteredTrophies = trophys.filter(trophy => trophy.id !== id);
     setTrophys(filteredTrophies);
   }
 
+  //Function to decide whether the trophy is complete or not
   const completeTrophy =(id)=>{
     const newTrophies = [...trophys]//Creates a copy of the current array of trophies
     newTrophies.map((trophy) => trophy.id === id ? trophy.isCompleted = !trophy.isCompleted : trophy)
@@ -68,12 +77,13 @@ function App() {
     setEditingTrophy(trophy);
   };
 
+  //Function to decide whether the trophy is complete or not
   const updateTrophy = (id, updatedTrophy) => {
     const updatedTrophies = trophys.map((trophy) =>
       trophy.id === id ? { ...trophy, ...updatedTrophy } : trophy
     );
     setTrophys(updatedTrophies);
-    setEditingTrophy(null); // Sai do modo de edição
+    setEditingTrophy(null); 
   };
   
   
