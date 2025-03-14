@@ -91,21 +91,34 @@ function App() {
 
   return (
     <div className='app'>
+      {/*Main page title*/}
       <h1>List of Trophies</h1>
+
+      {/*Search component to filter trophies by game name.Passes the 'search' state and the 'setSearch' function as props.*/}
       <TrophySearch search={search} setSearch={setSearch}></TrophySearch>
+
+      {/*Filter component to filter trophies by status and set the sort order.Passes the states and functions to manipulate the filters.*/}
       <TrophyFilter filter={filter} setFilter={setFilter} setSort={setSort}></TrophyFilter>
+      
+      {/*Container to display the list of trophies*/}
       <div className='trophy-list'>
         {trophys
-          .filter((trophy)=> filter === "All" ? true : filter === "Completed" ? trophy.isCompleted : !trophy.isCompleted)
+          //Filters the trophies according to the selected status
+          .filter((trophy)=> filter === "All" ? true : filter === "Completed" ? trophy.isCompleted : !trophy.isCompleted )
+          //Filters trophies that contain the text entered in the search bar (ignores case)
           .filter((trophy)=>
             trophy.nameGame.toLowerCase().includes(search.toLowerCase())
+          //Sort trophies in ascending or descending alphabetical order
           ).sort((a, b) => sort === "Asc" ? a.nameGame.localeCompare(b.nameGame) : b.nameGame.localeCompare(a.nameGame))
+          //Maps the filtered and sorted trophies to render the TrophyList component
           .map((trophy) => (
           <TrophyList key ={trophy.id} trophy={trophy} removeTrophy={removeTrophy} completeTrophy={completeTrophy}  editTrophy={editTrophy} ></TrophyList>
         ))}
 
       </div>
+      {/*Form to add or edit a trophy. Receives the add and update functions, in addition to the trophy that is being edited.*/}
       <TrophyForm addTrophy={addTrophy} updateTrophy={updateTrophy} editingTrophy={editingTrophy}></TrophyForm>
+      {/*Graph representing trophy data*/}
       <TrophyChart trophies={trophys} />
     </div>
   )

@@ -12,43 +12,46 @@ const TrophyForm = ({addTrophy, updateTrophy, editingTrophy}) => {
     
 
     useEffect(() => {
-        if (editingTrophy) {
-            setName(editingTrophy.nameGame);
+        if (editingTrophy) {// If there is a trophy selected for editing...
+            setName(editingTrophy.nameGame);// Fills the "nameGame" field
             setTitle(editingTrophy.title);
             setText(editingTrophy.text);
             setCategory(editingTrophy.category);
         }
-    }, [editingTrophy]);
+    }, [editingTrophy]);// This effect is triggered whenever 'editingTrophy' changes
 
     const handleSubmit = (e) =>{
-        e.preventDefault();
+        e.preventDefault();//Prevents the page from reloading when submitting the form
+
         //Verify if every camp is occupy
-        
         if(!name || !text ||  !category || !title){
-            setShowModal(true);
+            setShowModal(true);//Displays error modal
             return;
         }
-        else{
-            addTrophy(name, text, category, title);
-            setName("");
-            setText("");
-            setCategory("");
-            setTitle("");
-
-            setShowSuccess(true);//Display success notification
-
-            //After 4 seconds it starts to fade away
-            setTimeout(() => {
-                setShowSuccess(false);
-            }, 4000);
-        }
+        
+        //If editing an existing trophy, refreshes it
         if (editingTrophy) {
-            // Atualiza o troféu existente
+            //Updates existing trophy
             updateTrophy(editingTrophy.id, { nameGame: name, title, text, category });
         } else {
-            // Adiciona um novo troféu
+            //Add a new trophy
             addTrophy(name, title, text, category);
         }
+
+        //Clears the form fields after adding/editing
+        setName("");
+        setText("");
+        setCategory("");
+        setTitle("");
+
+        //Display success notification
+        setShowSuccess(true);
+
+        //After 4 seconds it starts to fade away
+        setTimeout(() => {
+            setShowSuccess(false);
+        }, 4000);
+        
 
     }
 
@@ -76,6 +79,10 @@ const TrophyForm = ({addTrophy, updateTrophy, editingTrophy}) => {
                 <option value="Item">Item</option>
             </select>
             <button type='submit'>{editingTrophy ? "Update Task" : "Create Task"}</button>
+            {/*It dynamically changes the button text based on the existence of editingTrophy:
+
+            If editingTrophy exists: The button displays "Update Task".
+            If editingTrophy is null or undefined: The button displays "Create Task". */}
         </form>
 
         {showModal && <ErrorModal />}
