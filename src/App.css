@@ -29,7 +29,7 @@ p{
 input{
   box-sizing: border-box;
 }
-/*Button Customization*/
+
 button{
   background-color: #333;
   color: #fff;
@@ -89,7 +89,7 @@ button:hover{
   text-align: justify;
 }
 
-/*Trophy form Customization*/
+
 .trophy-form{
   padding-bottom: 1.5rem;
 }
@@ -113,7 +113,7 @@ input, select{
   font-size: 0.85em;
   color: gray;
 }
-/*Filter customization*/
+
 .filter, .search{
   border-bottom: 1px solid #555;
   margin-bottom: 20px;
@@ -145,7 +145,6 @@ input, select{
   margin-bottom: 2%;
 }
 
-/*Trophy success notification*/
 .success-notification {
   position: fixed;
   top: 20px;
@@ -159,7 +158,6 @@ input, select{
   animation: fadeOut 4s forwards;
 }
 
-/*Trophy charts*/
 .trophy-chart{
   width: "500px";
   margin: "20px auto";
@@ -171,8 +169,8 @@ input, select{
 
 @keyframes fadeOut {
   0% { opacity: 1; }
-  70% { opacity: 1; }  /* Keeps it visible for a while */
-  100% { opacity: 0; } /* Disappears at the end of the animation */
+  70% { opacity: 1; }  
+  100% { opacity: 0; } 
 }
 
 @media (max-width: 768px) { 

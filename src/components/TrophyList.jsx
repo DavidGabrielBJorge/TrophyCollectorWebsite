@@ -7,7 +7,6 @@ const TrophyList = ({trophy, removeTrophy, completeTrophy, editTrophy}) => {
 
       <div className="content">
         <p> <i className={trophy.isCompleted ? "bi bi-award-fill" : "bi bi-award"}></i> {trophy.nameGame}</p>
-        {/*If trophy.isCompleted is true than use "bi bi-award-fill" (filled icon). If trophy.isCompleted is false than use "bi bi-award" (empty icon).*/}
         <p>{trophy.title}</p>
         <p className="category"><i className="bi bi-caret-right-fill"></i>{trophy.category}</p>
         <p className='trophy-text'>{trophy.text}</p>
