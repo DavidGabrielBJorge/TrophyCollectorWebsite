@@ -16,10 +16,10 @@ Trophy Manager é uma aplicação web que permite aos usuários adicionar, geren
 
 ## Tecnologias Utilizadas
 
- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" width="40" height="40"/> Biblioteca para construção da interface de usuário.
- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg" width="40" height="40"/> Linguagem de programação.
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" width="40" height="40"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" width="40" height="40"/> Estrutura e estilização da interface.
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original-wordmark.svg" width="40" height="40"/> - Biblioteca de ícones.
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" width="40" height="40"/> Biblioteca para construção da interface de usuário.
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg" width="40" height="40"/> Linguagem de programação.
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" width="40" height="40"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" width="40" height="40"/> Estrutura e estilização da interface.
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original-wordmark.svg" width="40" height="40"/> - Biblioteca de ícones.
 
 
 ## Estrutura do Projeto
